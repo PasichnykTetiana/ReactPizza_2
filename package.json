@@ -163,5 +163,13 @@
     "@types/react-redux": "^7.1.16",
     "node-sass": "^5.0.0",
     "sass-loader": "^10.1.1"
+  },
+  "v": {
+    "name": "myapp",
+    "description": "a really cool app",
+    "version": "1.0.0",
+    "engines": {
+      "node": "v14.15.5"
+    }
   }
 }
