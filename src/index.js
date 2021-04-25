@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import {BrowserRouter, Route, Router} from 'react-router-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
@@ -9,9 +8,7 @@ import store from './redux/store';
 import './scss/app.scss';
 
 import App from './App';
-//console.log(store.getState());
 
-//провайдер для работы с хранилоищем
 ReactDOM.render(
   <Router>
     <Provider store={store}>

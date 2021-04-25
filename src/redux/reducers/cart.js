@@ -12,18 +12,12 @@ const cart = (state = initialState, action) => {
       const currentPizzaItems = !state.items[action.payload.size + action.payload.id]
         ? [action.payload]
         : [...state.items[action.payload.size + action.payload.id].items, action.payload];
-      console.log(action.payload.size);
-
-      let k, m;
-
-      action.payload.size === 26 ? (k = 1) : (k = 1.4);
-      action.payload.size === 40 ? (m = 1.2) : (m = 1);
 
       const newItems = {
         ...state.items,
         [action.payload.size + action.payload.id]: {
           items: currentPizzaItems,
-          totalPrice: k * m * getTotalPrice(currentPizzaItems),
+          totalPrice: getTotalPrice(currentPizzaItems),
         },
       };
 
@@ -67,16 +61,11 @@ const cart = (state = initialState, action) => {
         state.items[action.payload.size + action.payload.id].items[0],
       ];
 
-      let k, m;
-
-      action.payload.size === 26 ? (k = 1) : (k = 1.4);
-      action.payload.size === 40 ? (m = 1.2) : (m = 1);
-
       const newItems = {
         ...state.items,
         [action.payload.size + action.payload.id]: {
           items: newObjItems,
-          totalPrice: k * m * getTotalPrice(newObjItems),
+          totalPrice: getTotalPrice(newObjItems),
         },
       };
 
@@ -105,16 +94,11 @@ const cart = (state = initialState, action) => {
           ? state.items[action.payload.size + action.payload.id].items.slice(1)
           : oldItems;
 
-      let k, m;
-
-      action.payload.size === 26 ? (k = 1) : (k = 1.4);
-      action.payload.size === 40 ? (m = 1.2) : (m = 1);
-
       const newItems = {
         ...state.items,
         [action.payload.size + action.payload.id]: {
           items: newObjItems,
-          totalPrice: k * m * getTotalPrice(newObjItems),
+          totalPrice: getTotalPrice(newObjItems),
         },
       };
 

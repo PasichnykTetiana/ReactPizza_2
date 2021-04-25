@@ -8,9 +8,19 @@ function PizzaBlock({ id, name, imageUrl, price, sizes, onClickAddPizza }) {
   const availableSizes = [26, 30, 40];
 
   const [activeSize, setActiveSize] = React.useState(0);
+  const [sizeFactor, setSizeFactor] = React.useState(1);
 
   const onSelectSize = (index) => {
     setActiveSize(index);
+    if (availableSizes[index] === 26) {
+      setSizeFactor(1);
+    }
+    if (availableSizes[index] === 30) {
+      setSizeFactor(1.2);
+    }
+    if (availableSizes[index] === 40) {
+      setSizeFactor(1.4);
+    }
   };
 
   const onAddPizza = () => {
@@ -18,11 +28,10 @@ function PizzaBlock({ id, name, imageUrl, price, sizes, onClickAddPizza }) {
       id,
       name,
       imageUrl,
-      price,
+      price: price * sizeFactor,
       size: availableSizes[activeSize],
     };
     onClickAddPizza(obj);
-    console.log(obj.size);
   };
 
   return (
@@ -45,7 +54,7 @@ function PizzaBlock({ id, name, imageUrl, price, sizes, onClickAddPizza }) {
         </ul>
       </div>
       <div className="pizza-block__bottom">
-        <div className="pizza-block__price">от {price}</div>
+        <div className="pizza-block__price">{price * sizeFactor} грн</div>
         <Button onClick={onAddPizza} className="button--add" outline>
           <svg
             width="12"
