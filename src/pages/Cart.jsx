@@ -124,8 +124,6 @@ function Cart() {
                   name={obj.name}
                   type={obj.type}
                   size={obj.size}
-                  //totalPrice={items[obj.id].totalPrice}
-                  //totalCount={items[obj.id].items.length}
                   totalPrice={items[obj.id + obj.size].totalPrice}
                   totalCount={items[obj.id + obj.size].items.length}
                   onRemove={onRemoveItem}

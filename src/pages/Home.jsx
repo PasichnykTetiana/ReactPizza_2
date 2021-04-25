@@ -64,7 +64,7 @@ function Home() {
                 <PizzaBlock
                   onClickAddPizza={handleAddPizzaToCart}
                   key={obj.id}
-                  addedCount={cartItems[obj.id] && cartItems[obj.id].items.length} //взять длину массива вида пицц
+                  addedCount={cartItems[obj.id] && cartItems[obj.id].items.length}
                   {...obj}
                 />
               ))
